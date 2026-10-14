@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details | ProjectShelf</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .details-container {
+            max-width: 850px;
+            margin: 50px auto;
+            padding: 35px;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e3e6dc;
+        }
+
+        .details-container h1 {
+            margin: 18px 0;
+        }
+
+        .details-container p {
+            line-height: 1.8;
+            margin: 12px 0;
+        }
+
+        .details-label {
+            color: #52765d;
+            font-weight: bold;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            background: #456b55;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h2>ProjectShelf</h2>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html#projects">Projects</a>
+        </nav>
+    </header>
+
+    <main class="details-container">
+        <span class="details-label" id="domain"></span>
+
+        <h1 id="title">Project Details</h1>
+
+        <p id="description"></p>
+
+        <h3>Technologies Used</h3>
+        <p id="technology"></p>
+
+        <h3>Key Features</h3>
+        <p id="features"></p>
+
+        <a class="back-button" href="index.html#projects">
+            Back to Projects
+        </a>
+    </main>
+
+    <script>
+        const projects = {
+            "Student Performance Prediction": {
+                domain: "AI / ML",
+                description: "Predicts student academic performance using academic data.",
+                technology: "Python, Machine Learning",
+                features: "Data analysis, performance prediction, result visualization"
+            },
+            "Event Management System": {
+                domain: "Web Development",
+                description: "Helps colleges manage events and student registrations.",
+                technology: "HTML, CSS, JavaScript, Python",
+                features: "Event creation, registration, attendance tracking"
+            },
+            "Phishing Awareness System": {
+                domain: "Cybersecurity",
+                description: "Educates users about suspicious links and online safety.",
+                technology: "HTML, CSS, JavaScript",
+                features: "Security awareness, suspicious-link education"
+            }
+        };
+
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get("project");
+        const project = projects[name];
+
+        if (project) {
+            document.getElementById("title").textContent = name;
+            document.getElementById("domain").textContent = project.domain;
+            document.getElementById("description").textContent = project.description;
+            document.getElementById("technology").textContent = project.technology;
+            document.getElementById("features").textContent = project.features;
+        } else {
+            document.getElementById("title").textContent = "Project Not Found";
+            document.getElementById("description").textContent =
+                "Please return to the projects page and select a project.";
+        }
+    </script>
+
+</body>
+</html>

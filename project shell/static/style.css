@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f6ef;
+    color: #253c32;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 8%;
+    background: #ffffff;
+}
+
+header h2 {
+    color: #456b55;
+}
+
+nav a {
+    text-decoration: none;
+    color: #253c32;
+    margin-left: 22px;
+}
+
+.hero {
+    text-align: center;
+    padding: 90px 20px;
+    background: #e4eee4;
+}
+
+.tag {
+    color: #52765d;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: 44px;
+    margin-bottom: 18px;
+}
+
+.hero p {
+    line-height: 1.8;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 13px 24px;
+    background: #456b55;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.projects {
+    padding: 55px 8%;
+}
+
+.projects h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.project-list {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #e3e6dc;
+}
+
+.card span {
+    color: #52765d;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.card h3 {
+    margin: 16px 0 12px;
+}
+
+.card p {
+    line-height: 1.6;
+    color: #626b63;
+}
+
+.card button {
+    margin-top: 18px;
+    padding: 10px 16px;
+    border: none;
+    background: #456b55;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    background: #253c32;
+    color: white;
+    line-height: 2;
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 0 7px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+}
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.filters input,
+.filters select {
+    padding: 13px;
+    border: 1px solid #cbd8cc;
+    border-radius: 8px;
+    font-size: 15px;
+    background: white;
+}
+
+.filters input {
+    width: 300px;
+    max-width: 100%;
+}
+
+.filters select {
+    cursor: pointer;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.login-btn,
+.register-btn {
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.login-btn {
+    color: #526b55;
+    border: 1px solid #526b55;
+}
+
+.register-btn {
+    background: #526b55;
+    color: white;
+}
+
+.login-btn:hover,
+.register-btn:hover {
+    opacity: 0.85;
+}

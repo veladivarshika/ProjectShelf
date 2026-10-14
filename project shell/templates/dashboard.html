@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - ProjectShelf</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            margin: 0;
+            background: #f4f5ef;
+            font-family: Arial, sans-serif;
+            color: #344638;
+        }
+
+        .dashboard {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 30px;
+        }
+
+        .welcome-card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+        }
+
+        .welcome-card h1 {
+            color: #526b55;
+        }
+
+        .dashboard-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .dashboard-links a {
+            display: inline-block;
+            padding: 12px 18px;
+            background: #526b55;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+
+        .dashboard-links a:hover {
+            opacity: 0.85;
+        }
+    </style>
+</head>
+<body>
+    <main class="dashboard">
+        <div class="welcome-card">
+            <h1>Welcome, {{ name }}!</h1>
+            <p>This is your ProjectShelf student dashboard.</p>
+            <p>Discover academic projects, explore new ideas, and share your work.</p>
+
+            <div class="dashboard-links">
+                <a href="/">Home</a>
+                <a href="/projects">Explore Projects</a>
+                <a href="/logout">Logout</a>
+                <a href="{{ url_for('upload_project') }}">Upload Project</a>
+                <a href="{{ url_for('my_projects') }}">My Projects</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

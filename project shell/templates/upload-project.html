@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Project - ProjectShelf</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f5ef;
+            color: #344638;
+            margin: 0;
+            padding: 30px 15px;
+        }
+        .container {
+            max-width: 650px;
+            margin: auto;
+            background: white;
+            padding: 28px;
+            border-radius: 14px;
+        }
+        h1 { color: #526b55; }
+        label {
+            display: block;
+            margin-top: 16px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 11px;
+            margin-top: 7px;
+            border: 1px solid #ccd4ca;
+            border-radius: 7px;
+        }
+        textarea { min-height: 100px; }
+        button, .back {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 18px;
+            background: #526b55;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .hint { font-size: 13px; color: #666; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Upload Your Project</h1>
+    <p>Share your academic project with ProjectShelf.</p>
+
+    <form method="POST"
+          action="{{ url_for('upload_project') }}"
+          enctype="multipart/form-data">
+
+        <label>Project Title *</label>
+        <input type="text" name="title" required maxlength="150">
+
+        <label>Domain *</label>
+        <select name="domain" required>
+            <option value="">Select a domain</option>
+            <option>AI / Machine Learning</option>
+            <option>Web Development</option>
+            <option>Cybersecurity</option>
+            <option>Data Science</option>
+            <option>Mobile App Development</option>
+            <option>Other</option>
+        </select>
+
+        <label>Project Description *</label>
+        <textarea name="description" required maxlength="3000"></textarea>
+
+        <label>Technologies Used *</label>
+        <input type="text" name="technologies"
+               placeholder="Python, Flask, SQLite" required maxlength="300">
+
+        <label>GitHub Repository Link</label>
+        <input type="url" name="github_link"
+               placeholder="https://github.com/username/project">
+        <p class="hint">Optional if you upload a project file.</p>
+
+        <label>Project File</label>
+        <input type="file" name="project_file"
+               accept=".pdf,.zip,.docx,.pptx">
+        <p class="hint">
+            PDF, ZIP, DOCX or PPTX. Maximum 10 MB.
+            Provide a GitHub link, a file, or both.
+        </p>
+
+        <button type="submit">Submit Project</button>
+        <a class="back" href="{{ url_for('dashboard') }}">Back</a>
+    </form>
+</div>
+</body>
+</html>

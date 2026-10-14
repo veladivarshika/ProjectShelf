@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects - ProjectShelf</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f5ef;
+            color: #344638;
+            padding: 25px;
+        }
+        .container { max-width: 850px; margin: auto; }
+        .project-card {
+            background: white;
+            padding: 22px;
+            margin: 18px 0;
+            border-radius: 12px;
+            overflow-wrap: anywhere;
+        }
+        a { color: #426747; }
+        .button {
+            display: inline-block;
+            background: #526b55;
+            color: white;
+            padding: 11px 15px;
+            border-radius: 7px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>My Projects</h1>
+    <p>Projects submitted from your account appear here.</p>
+
+    <a class="button" href="{{ url_for('upload_project') }}">
+        + Upload Project
+    </a>
+    <a href="{{ url_for('dashboard') }}">Dashboard</a>
+
+    {% if projects %}
+        {% for project in projects %}
+        <div class="project-card">
+            <h2>{{ project["title"] }}</h2>
+            <p><strong>Domain:</strong> {{ project["domain"] }}</p>
+            <p><strong>Description:</strong> {{ project["description"] }}</p>
+            <p><strong>Technologies:</strong> {{ project["technologies"] }}</p>
+
+            {% if project["github_link"] %}
+                <p>
+                    <a href="{{ project['github_link'] }}"
+                       target="_blank" rel="noopener noreferrer">
+                        View GitHub Repository
+                    </a>
+                </p>
+            {% endif %}
+
+            {% if project["original_file_name"] %}
+                <p>
+                    <strong>Uploaded file:</strong>
+                    {{ project["original_file_name"] }}
+                </p>
+                <p class="hint">
+                    File is saved on the server; download access will be
+                    added with protected file-download functionality.
+                </p>
+            {% endif %}
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>You haven't uploaded any projects yet.</p>
+    {% endif %}
+</div>
+</body>
+</html>
